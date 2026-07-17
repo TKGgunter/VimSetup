@@ -23,9 +23,9 @@ mkdir -p ~/vim/
 cp vim/* ~/vim/.
 
 # TODO check before setting, although maybe it doesn't matter.
-GIT_EDITOR=$(git config --global --get core.editor)
+git_editor=$(git config --global --get core.editor)
 if [[ $git_editor != "nvim" ]]; then
-  echo "replacing git editor with $git_editor"
+  echo "replacing git editor `$git_editor` with nvim"
   git config --global core.editor "nvim"
 fi
 
