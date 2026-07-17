@@ -56,6 +56,11 @@ set foldmethod=syntax
 " Open file un-folded
 set foldlevelstart=99
 
+" Load external vimrc
+set exrc
+
+" Restrict command external vimrc file can use
+set secure
 
 " ''''''''''''''''''''''''''''''''
 " Status Bar
@@ -528,7 +533,8 @@ function! RememberShortCuts() abort
     let buf = nvim_create_buf(v:false, v:true)
 
     let ui = nvim_list_uis()[0]
-    call nvim_buf_set_text(buf, 0, -1, 0, -1, ["'<C-w><C-w>' - jump to and from float window",
+    call nvim_buf_set_text(buf, 0, -1, 0, -1, ["':make' - execute a build",
+                                              \ "':copen' - open a window of compile errors ",
                                               \ "'%' - jump to opposite(open/close) bracket.",
                                               \ "'}' - jump to bottom of code block",
                                               \ "'<Leader>/' - clear search highlights",
