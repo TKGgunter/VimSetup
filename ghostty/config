@@ -1,4 +1,5 @@
 theme = Builtin Tango Dark
+palette = 1           =#e78284
 background            = #2E3436
 foreground            = #D3D7CF
 cursor-color          = #ffffff
@@ -11,7 +12,7 @@ keybind = ctrl+l=goto_split:right
 keybind = ctrl+j=goto_split:bottom
 keybind = ctrl+k=goto_split:top
 
-# Turns off integration so that the cursor behaves currectly when going in and out 
-# of vi mode.
+# Turns off integration so that the cursor behaves. When shell integrations
+# were on going in and out of vi mode in the shell caused problems.
 shell-integration = none
 shell-integration-features = false
