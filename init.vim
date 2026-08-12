@@ -506,6 +506,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
     if client.name == 'ruff' then
       -- Disable hover in favor of Pyright
       client.server_capabilities.hoverProvider = false
+      client.server_capabilities.documentFormattingProvider = false
+      client.server_capabilities.documentRangeFormattingProvider = false
     end
   end,
   desc = 'LSP: Disable hover capability from Ruff',
@@ -555,3 +557,11 @@ function! RememberShortCuts() abort
 endfunction
 
 nmap <Leader>h :call RememberShortCuts()<CR>
+
+" TODO: this doesn't work as expected. Lsp formatting seems seems to be
+" overriding the conventions.
+"
+" Configures vim to allow nice comment formatting in python
+autocmd FileType python setlocal formatoptions+=crq textwidth=72
+autocmd FileType python setlocal formatexpr=""
+
